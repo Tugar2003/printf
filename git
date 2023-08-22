@@ -1,0 +1,5 @@
+#!/bin/bash
+git add .
+git commit -m "The secret of printf"
+git push
+
