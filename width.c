@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * get_wid - Entry of program
+ * get_wid - Entry of program
  * Description: computes width for printing
  * @format: customized string to print the arguments.
  * @a: arguments to be printed.
@@ -14,7 +14,7 @@ int get_wid(const char *format, int *a, va_list l)
 {
 int c, width;
 c = 0;
-w = 0;
+width = 0;
 
 for (c = *a + 1; format[c] != '\0'; c++)
 {

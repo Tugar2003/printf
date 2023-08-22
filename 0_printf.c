@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	char buffer[BUFF_SIZE];
 	va_list a;
 
-	va_start(a, fmt);
+	va_start(a, format);
 
 	if (format == NULL)
 		return (-1);
@@ -30,12 +30,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buff_ind);
-			flags = get_flag(formatt, &k);
+			flags = get_flag(format, &k);
 			width = get_wid(format, &k, a);
 			precision = get_prec(format, &k, a);
 			size = get_siz(format, &k);
 			++k;
-			p = handle_print(format, &k, a, buffer, flags, width, precision, size);
+			p = handle_p(format, &k, a, buffer, flags, width, precision, size);
 			if (p == -1)
 				return (-1);
 			pc += p;

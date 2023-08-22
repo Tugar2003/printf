@@ -9,23 +9,23 @@
  */
 int get_prec(const char *format, int *k, va_list a)
 {
-	int prec = -1;
+	int precision = -1;
 	int curr_k = *k + 1;
 
 	if (format[curr_k] != '.')
-		return (prec);
-	prec = 0;
-	for (curr_k + 1; format[curr_k] != '\0'; curr_k++)
+		return (precision);
+	precision = 0;
+	for (curr_k += 1; format[curr_k] != '\0'; curr_k++)
 	{
 		if (is_dig(format[curr_k]))
 		{
-			prec *= 10;
-			prec += format[curr_k] - '0';
+			precision *= 10;
+			precision += format[curr_k] - '0';
 		}
 		else if (format[curr_k] == '*')
 		{
 			curr_k++;
-			prec = va_arg(a, int);
+			precision = va_arg(a, int);
 			break;
 		}
 		else
@@ -33,5 +33,5 @@ int get_prec(const char *format, int *k, va_list a)
 	}
 	*k = curr_k - 1;
 
-	return (prec);
+	return (precsion);
 }

@@ -14,10 +14,10 @@ int get_flag(const char *format, int *k)
 		FL_HASH, FL_SPACE, 0};
 	const char FLAG_CH[] = {'-', '+', '0', '#', '', '\0'};
 
-	for (curr_k = *k + 1; format[curr_k] != '\0', curr_k++)
+	for (curr_k = *k + 1; format[curr_k] != '\0'; curr_k++)
 	{
-		for (s = 0; FLAG_ch[s] != '\0'; s++)
-			if (format[curr_k] == FLAG_CH[S])
+		for (s = 0; FLAG_CH[s] != '\0'; s++)
+			if (format[curr_k] == FLAG_CH[s])
 			{
 				flag |= FLAG_ARR[s];
 				break;

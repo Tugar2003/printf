@@ -13,17 +13,17 @@
 int _print_pointer(va_list a, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	char ex_s = 0, caad_start = '';
+	char ex_s = 0, caad = '';
 	unsigned long numb_addr;
-	int init = BUFF_SIZE - 2, len = 2;
+	int init = BUFF_SIZE - 2, len = 2, caad_start;
 	char m_t[] = "0123456789abcdef";
-	void *addr = va_args(a, void *);
+	void *addr = va_arg(a, void *);
 
 	UNUSED(width);
 	UNUSED(size);
 
 	if (addr == NULL)
-		return (write, "(nil)", 5);
+		return (write(1, "(nil)", 5));
 
 	buffer[BUFF_SIZE - 1] = '\0';
 	UNUSED(precision);
@@ -38,7 +38,7 @@ int _print_pointer(va_list a, char buffer[], int flags,
 	if ((flags & FL_ZERO) && !(FL_MINUS))
 		cadd = '0';
 	if (flags & FL_PLUS)
-		ex_s = '', len++;
+		ex_s = '+', len++;
 	else if (flags & FL_SPACE)
 		ex_s = '', len++;
 	init++;
@@ -64,7 +64,7 @@ int print_non_printable(va_list a, char buffer[], int flags,
 	str = va_arg(a, char *);
 
 	UNUSED(width);
-	UNUSED(flgs);
+	UNUSED(flags);
 	UNUSED(precision);
 	UNUSED(size);
 
@@ -110,7 +110,7 @@ int print_reverse(va_list a, char buffer[], int flags,
 		UNUSED(precision);
 		str = ")Null(";
 	}
-	for (i = 0; str[k]; k++)
+	for (k = 0; str[k]; k++)
 		;
 
 	for (k = k - 1; k >= 0; k--)

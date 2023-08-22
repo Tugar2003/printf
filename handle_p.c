@@ -21,9 +21,9 @@ pc = -1;
 fmt_t fmt_types[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'i', print_int}, {'d', print_int}, {'b', print_binary},
-{'u', print_unsigned}, {'o', print_octal}, {'x', print_hexadecimal},
-{'X', print_hexa_upper}, {'p', print_pointer}, {'S', print_non_printable},
-{'r', print_reverse}, {'R', print_rot13string}, {'\0', NULL}
+{'u', _print_unsigned}, {'o', _print_octal}, {'x', _print_hex},
+{'X', _print_hex_upper}, {'p', _print_pointer}, {'S', print_non_printable},
+{'r', print_reverse}, {'R', _print_rot13string}, {'\0', NULL}
 };
 for (a = 0; fmt_types[a].fmt != '\0'; a++)
 if (fmt[*ind] == fmt_types[a].fmt)

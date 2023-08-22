@@ -85,7 +85,7 @@ int print_percent(va_list a, char buffer[], int flags,
 	UNUSED(precision);
 	UNUSED(size);
 
-	return (write(1, "%%" 1));
+	return (write(1, "%%", 1));
 }
 /***** INTEGER TO PRINT *****/
 /**
@@ -112,7 +112,7 @@ int print_int(va_list a, char buffer[], int flags,
 		buffer[k--] = '\0';
 	buffer[BUFF_SIZE - 1] = '\0';
 	number = (unsigned long int)c;
-	if (n < 0)
+	if (c < 0)
 	{
 		number = (unsigned long int)((-1) * c);
 		neg = 1;

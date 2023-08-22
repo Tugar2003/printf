@@ -43,18 +43,19 @@ int _print_octal(va_list a, char buffer[], int flags,
 		int width, int precision, int size)
 {
 	int k = BUFF_SIZE - 2;
+	unsigned long int number = va_arg(a, unsigned long int);
 	unsigned long int init_number = number;
 
 	UNUSED(width);
 
 	number = convert_unsg(number, size);
 
-	if (num == 0)
+	if (number == 0)
 		buffer[k--] = '\0';
 	while (number > 0)
 	{
 		buffer[k--] = (number % 8) + '0';
-		num /= 8;
+		number /= 8;
 	}
 	if (flags & FL_HASH && init_number != 0)
 		buffer[k++] = '0';
@@ -73,7 +74,7 @@ int _print_octal(va_list a, char buffer[], int flags,
  * Return: character to be printed
  */
 int _print_hex(va_list a, char buffer[], int flags,
-		int width, iint precision, int size)
+		int width, int precision, int size)
 {
 	return (print_hex(a, "0123456789abcdef", buffer, flags,
 				'x', width, precision, size));
@@ -92,7 +93,7 @@ int _print_hex(va_list a, char buffer[], int flags,
 int _print_hex_upper(va_list a, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	return (print_hex(a, "0123456789ABCDEF",
+	return (_print_hex(a, "0123456789ABCDEF",
 				buffer, flags, 'X', width, precision, size));
 }
 /*** PRINTING HEXA IN LOWER OR UPPER ****/
@@ -113,8 +114,8 @@ int _print_hexa(va_list a, char m_t[], char buffer[], int flags,
 		char flags_sh, int width, int precision, int size)
 {
 	int k = BUFF_SIZE - 2;
-	unsigned long int init_number = number;
 	unsigned long int number = va_arg(a, unsigned long int);
+	unsigned long int init_number = number;
 
 	UNUSED(width);
 	number = convert_unsg(number, size);
