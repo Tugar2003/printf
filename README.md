@@ -11,3 +11,7 @@ Handle the following flag characters for non-custom conversion specifiers
 
 00. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life
 Write a function that produces output according to a format.
+
+10. The negative is the equivalent of the composer's score, and the print the performance
+
+11. It's depressing when you're still around and your albums are out of print
