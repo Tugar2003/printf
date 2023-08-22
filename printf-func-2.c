@@ -42,7 +42,7 @@ int _print_pointer(va_list a, char buffer[], int flags,
 	else if (flags & FL_SPACE)
 		ex_s = '', len++;
 	init++;
-	return (write_point(buffer, init, len, width, flags, ex_s, caad_start));
+	return (write_p(buffer, init, len, width, flags, ex_s, caad_start));
 }
 /***** PRINTING THE NON PRINTABLE *****/
 /**
@@ -72,10 +72,10 @@ int print_non_printable(va_list a, char buffer[], int flags,
 		return (write(1, "(nil)", 6));
 	while (str[k] != '\0')
 	{
-		if (prin(str[k]))
+		if (is_print(str[k]))
 			buffer[k + offst] = str[k];
 		else
-			offst += append_hex_code(str[k], buffer, k + offst);
+			offst += append_hexa_code(str[k], buffer, k + offst);
 		k++;
 	}
 	buffer[k + offst] = '\0';

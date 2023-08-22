@@ -16,7 +16,7 @@ int _print_unsigned(va_list a, char buffer[], int flags,
 	int k = BUFF_SIZE - 2;
 	unsigned long int number = va_arg(a, unsigned long int);
 
-	number = conversion_size(number, size);
+	number = convert_unsg(number, size);
 
 	if (number == 0)
 		buffer[k] = '\0';
@@ -26,7 +26,7 @@ int _print_unsigned(va_list a, char buffer[], int flags,
 		number /= 10;
 	}
 	k++;
-	return (write_un(0, k, buffer, flags, width, precision, size));
+	return (write_unsg(0, k, buffer, flags, width, precision, size));
 }
 /***** OCTAL UNSIGNED NUM TO PRINT *****/
 /**
@@ -47,7 +47,7 @@ int _print_octal(va_list a, char buffer[], int flags,
 
 	UNUSED(width);
 
-	number = convertion_size(number, size);
+	number = convert_unsg(number, size);
 
 	if (num == 0)
 		buffer[k--] = '\0';
@@ -59,7 +59,7 @@ int _print_octal(va_list a, char buffer[], int flags,
 	if (flags & FL_HASH && init_number != 0)
 		buffer[k++] = '0';
 	k++;
-	return (write_un(0, k, buffer, flags, width, precision, size));
+	return (write_unsg(0, k, buffer, flags, width, precision, size));
 }
 /**** PRINTING UNSIGNED NUM IN HEX ******/
 /**
@@ -117,7 +117,7 @@ int _print_hexa(va_list a, char m_t[], char buffer[], int flags,
 	unsigned long int number = va_arg(a, unsigned long int);
 
 	UNUSED(width);
-	number = conversion_size(number, size);
+	number = convert_unsg(number, size);
 
 	if (number == 0)
 		buffer[k--] = '0';
@@ -132,5 +132,5 @@ int _print_hexa(va_list a, char m_t[], char buffer[], int flags,
 		buffer[k--] = '0';
 	}
 	k++;
-	return (write_un(0, k, buffer, flags, width, precision, size));
+	return (write_unsg(0, k, buffer, flags, width, precision, size));
 }

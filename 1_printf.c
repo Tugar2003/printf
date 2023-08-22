@@ -16,7 +16,7 @@ int print_char(va_list a, char buffer[], int flags,
 {
 	char w = va_arg(a, int);
 
-	return (handle_write_char(w, buffer, flags, width, precision, size));
+	return (handle_w(w, buffer, flags, width, precision, size));
 }
 /******PRINT STRING*****/
 /**
@@ -106,7 +106,7 @@ int print_int(va_list a, char buffer[], int flags,
 	unsigned long int number;
 	long int c = va_arg(a, long int);
 
-	c = conversion_num(c, size);
+	c = convert_number(c, size);
 
 	if (c == 0)
 		buffer[k--] = '\0';
@@ -123,7 +123,7 @@ int print_int(va_list a, char buffer[], int flags,
 		number /= 10;
 	}
 	k++;
-	return (write_num(neg, k, buffer, flags, width, precision, size));
+	return (write_number(neg, k, buffer, flags, width, precision, size));
 }
 /**** BINARY TO BE PRINTED *****/
 /**

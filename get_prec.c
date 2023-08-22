@@ -17,7 +17,7 @@ int get_prec(const char *format, int *k, va_list a)
 	prec = 0;
 	for (curr_k + 1; format[curr_k] != '\0'; curr_k++)
 	{
-		if (dig(format[curr_k]))
+		if (is_dig(format[curr_k]))
 		{
 			prec *= 10;
 			prec += format[curr_k] - '0';
