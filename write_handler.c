@@ -48,7 +48,7 @@ return (write(1, &buffer[0], 1));
 }
 
 /**
- * _write_number - Entry of program
+ * write_number - Entry of program
  * Description: Prints a string
  * @is_positive: Lista of arguments
  * @ind: char types.
@@ -143,7 +143,7 @@ return (write(1, &buf[ind], length));
 }
 
 /**
- * write_uns - Writes an unsigned number
+ * write_unsg - Writes an unsigned number
  * @negative: Number indicating if the num is negative
  * @ind: Index at which the number starts in the buffer
  * @buffer: Array of chars
@@ -155,7 +155,7 @@ return (write(1, &buf[ind], length));
  * Return: Number of written chars.
  *
  */
-int write_uns(int negative, int ind, char buffer[], int flags, int width,
+int write_unsg(int negative, int ind, char buffer[], int flags, int width,
 int precision, int size)
 {
 int length = BUFF_SIZE - ind - 1, i = 0;
