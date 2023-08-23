@@ -76,7 +76,7 @@ int print_non_printable(va_list a, char buffer[], int flags,
 		if (is_print(str[k]))
 			buffer[k + offst] = str[k];
 		else
-			offst += append_hexa_code(str[k], buffer, k + offst);
+			offst += append_hexa(str[k], buffer, k + offst);
 		k++;
 	}
 	buffer[k + offst] = '\0';
