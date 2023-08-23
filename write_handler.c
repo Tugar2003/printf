@@ -38,17 +38,15 @@ buffer[BUFF_SIZE - a - 2] = p;
 
 if (flags & FL_MINUS)
 return (write(1, &buffer[0], 1) +
-write(1, &buf[BUFF_SIZE - a - 1], width - 1));
+write(1, &buffer[BUFF_SIZE - a - 1], width - 1));
 else
 return (write(1, &buffer[BUFF_SIZE - a - 1], width - 1) +
 write(1, &buffer[0], 1));
 }
-
 return (write(1, &buffer[0], 1));
 }
-
 /**
- * _write_number - Entry of program
+ * write_number - Entry of program
  * Description: Prints a string
  * @is_positive: Lista of arguments
  * @ind: char types.
@@ -77,8 +75,7 @@ else if (flags & FL_PLUS)
 ech = '+';
 else if (flags & FL_SPACE)
 ech = ' ';
-
-return (write_number(ind, buffer, flags, width, precision,
+return (write_num(ind, buffer, flags, width, precision,
 l, p, ech));
 }
 
@@ -102,7 +99,7 @@ int length, char p, char ec)
 {
 int i, padd_start = 1;
 
-if (prec == 0 && ind == BUFF_SIZE - 2 && buf[ind] == '0' && width == 0)
+if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0' && width == 0)
 return (0);
 if (prec == 0 && ind == BUFF_SIZE - 2 && buffer[ind] == '0')
 buffer[ind] = p = ' ';
@@ -139,9 +136,8 @@ write(1, &buffer[ind], length - (1 - padd_start)));
 }
 if (ec)
 buffer[--ind] = ec;
-return (write(1, &buf[ind], length));
+return (write(1, &buffer[ind], length));
 }
-
 /**
  * write_uns - Writes an unsigned number
  * @negative: Number indicating if the num is negative

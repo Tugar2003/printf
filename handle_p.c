@@ -15,9 +15,7 @@
 int handle_p(const char *fmt, int *ind, va_list l, char buffer[], int flags,
 int width, int precision, int size)
 {
-int a, kl, pc;
-kl = 0;
-pc = -1;
+int a, kl = 0, pc = -1;
 fmt_t fmt_types[] = {
 {'c', print_char}, {'s', print_string}, {'%', print_percent},
 {'i', print_int}, {'d', print_int}, {'b', print_binary},

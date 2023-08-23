@@ -96,6 +96,7 @@ int write_p(char buffer[], int ind, int length, int width, int flags,
 char p, char ec, int padd_start);
 
 int write_unsg(int negative, int ind, char buffer[],
+
 int flags, int width, int precision, int size);
 
 int is_print(char);

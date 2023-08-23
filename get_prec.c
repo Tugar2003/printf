@@ -9,8 +9,9 @@
  */
 int get_prec(const char *format, int *k, va_list a)
 {
-	int precision = -1;
 	int curr_k = *k + 1;
+
+	int precision = -1;
 
 	if (format[curr_k] != '.')
 		return (precision);
@@ -33,5 +34,5 @@ int get_prec(const char *format, int *k, va_list a)
 	}
 	*k = curr_k - 1;
 
-	return (precsion);
+	return (precision);
 }

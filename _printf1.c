@@ -76,7 +76,7 @@ int _print_octal(va_list a, char buffer[], int flags,
 int _print_hex(va_list a, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	return (print_hex(a, "0123456789abcdef", buffer, flags,
+	return (_print_hexa(a, "0123456789abcdef", buffer, flags,
 				'x', width, precision, size));
 }
 /****** PRINTING UNSIGNED NUM IN UPPER HEXA ******/
@@ -93,7 +93,7 @@ int _print_hex(va_list a, char buffer[], int flags,
 int _print_hex_upper(va_list a, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	return (_print_hex(a, "0123456789ABCDEF",
+	return (_print_hexa(a, "0123456789ABCDEF",
 				buffer, flags, 'X', width, precision, size));
 }
 /*** PRINTING HEXA IN LOWER OR UPPER ****/
