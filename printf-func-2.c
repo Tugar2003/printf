@@ -142,9 +142,9 @@ int _print_rot13string(va_list a, char buffer[], int flags,
 	int counter = 0;
 	unsigned int k, s;
 	char tk[] =
-	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrtsuvwxyz";
+		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrtsuvwxyz";
 	char br[] =
-	"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+		"NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 	str = va_arg(a, char *);
 
 	UNUSED(buffer);
