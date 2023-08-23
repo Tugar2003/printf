@@ -12,7 +12,7 @@ int get_flag(const char *format, int *k)
 	int s, curr_k;
 	const int FLAG_ARR[] = {FL_MINUS, FL_PLUS, FL_ZERO,
 		FL_HASH, FL_SPACE, 0};
-	const char FLAG_CH[] = {'-', '+', '0', '#', '', '\0'};
+	const char FLAG_CH[] = {'-', '+', '0', '#', ' ', '\0'};
 
 	for (curr_k = *k + 1; format[curr_k] != '\0'; curr_k++)
 	{

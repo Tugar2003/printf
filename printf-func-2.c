@@ -13,9 +13,9 @@
 int _print_pointer(va_list a, char buffer[], int flags,
 		int width, int precision, int size)
 {
-	char ex_s = 0, caad = '';
+	char ex_s = 0, caad = ' ';
 	unsigned long numb_addr;
-	int init = BUFF_SIZE - 2, len = 2, caad_start;
+	int init = BUFF_SIZE - 2, len = 2, caad_start = 1;
 	char m_t[] = "0123456789abcdef";
 	void *addr = va_arg(a, void *);
 
@@ -36,13 +36,14 @@ int _print_pointer(va_list a, char buffer[], int flags,
 		len++;
 	}
 	if ((flags & FL_ZERO) && !(FL_MINUS))
-		cadd = '0';
+		caad = '0';
 	if (flags & FL_PLUS)
 		ex_s = '+', len++;
 	else if (flags & FL_SPACE)
-		ex_s = '', len++;
+		ex_s = ' ', len++;
 	init++;
-	return (write_p(buffer, init, len, width, flags, ex_s, caad_start));
+
+	return (write_p(buffer, init, len, width, flags, caad, ex_s, caad_start));
 }
 /***** PRINTING THE NON PRINTABLE *****/
 /**
